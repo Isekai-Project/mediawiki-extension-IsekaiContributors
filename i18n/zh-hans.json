@@ -1,0 +1,13 @@
+{
+  "isekaicontrib-name": "异世界百科 编写者信息",
+  "isekaicontrib-desc": "在页面上显示一个所有编写者的信息框",
+  "isekaicontrib-sidebar-contrib": "编写者",
+  "isekaicontrib-viewall": "查看所有编写者",
+  "isekai-contrib": "编写者",
+  "isekaicontrib-dialog-title": "本页面的编写者",
+  "isekaicontrib-dialog-cancel": "关闭",
+  "isekaicontrib-dialog-subtitle-creator": "创建者",
+  "isekaicontrib-dialog-subtitle-last-editor": "最后编写者",
+  "isekaicontrib-dialog-subtitle-contributors": "其他编写者"
+
+}

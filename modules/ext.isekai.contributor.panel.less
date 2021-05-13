@@ -1,0 +1,67 @@
+.isekai-contrib-panel {
+    text-align: left;
+    line-height: 0;
+
+    a {
+        margin: 3px 2px;
+        display: inline-block;
+        width: 32px;
+        height: 32px;
+        border-radius: 3px;
+        background-size: contain;
+    }
+}
+
+.isekai-contrib-top-panel {
+    padding: .25rem 0.5rem;
+    margin-bottom: 0;
+    background-color: rgba(0,0,0,0.03);
+    display: flex;
+    align-items: center;
+    border-radius: 0.25rem;
+    border: 1px solid rgba(0,0,0,0.125);
+
+    .spacer {
+        height: 100%;
+        -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+        margin: 0;
+    }
+
+    .isekai-contrib-panel-title {
+        font-weight: 500;
+        font-size: 18px;
+        padding: 0 10px;
+        line-height: 30px;
+        display: inline-block;
+        height: 32px;
+        margin: 3px 0;
+        color: #777;
+    }
+
+    .isekai-contrib-open-dialog {
+        flex-shrink: 0;
+    }
+
+    * {
+        overflow: hidden;
+        white-space: nowrap;
+    }
+}
+
+@media screen and (min-width: 1100px) {
+    .isekai-contrib-top-panel {
+        display: none;
+    }
+}
+
+.isekai-contrib-sidebox-panel {
+    padding-bottom: 10px;
+    min-width: 150px;
+    max-width: 180px;
+}
+
+.skin-timeless .isekai-contrib-sidebox-panel {
+    margin-top: -8px;
+}

@@ -1,0 +1,74 @@
+{
+  "name": "IsekaiContributors",
+  "namemsg": "isekaicontrib-name",
+  "author": "Hyperzlib",
+  "requires": {
+    "MediaWiki": ">= 1.35.0"
+  },
+  "url": "/",
+  "descriptionmsg": "isekaicontrib-desc",
+  "license-name": "MIT",
+  "type": "other",
+  "APIPropModules": {
+    "pagecredit": "Isekai\\Contributors\\Api\\ApiPageCredit"
+  },
+  "Hooks": {
+    "SidebarBeforeOutput": "Isekai\\Contributors\\Hooks::onSidebarBeforeOutput",
+    "SkinTemplateOutputPageBeforeExec": "Isekai\\Contributors\\Hooks::onSkinTemplateOutputPageBeforeExec",
+    "BeforePageDisplay": "Isekai\\Contributors\\Hooks::onBeforePageDisplay",
+    "ResourceLoaderGetConfigVars": "Isekai\\Contributors\\Hooks::onResourceLoaderGetConfigVars",
+    "GetDoubleUnderscoreIDs": "Isekai\\Contributors\\Hooks::onGetDoubleUnderscoreIDs"
+  },
+  "ExtensionMessagesFiles": {
+		"IsekaiContributorsMagic": "IsekaiContributors.i18n.magic.php"
+	},
+  "MessagesDirs": {
+    "IsekaiContributors": [
+      "i18n",
+      "i18n/api"
+    ]
+  },
+  "AutoloadNamespaces": {
+    "Isekai\\Contributors\\": "includes/"
+  },
+  "ResourceModules": {
+    "ext.isekai.contrib.styles": {
+      "styles": ["ext.isekai.contributor.panel.less"],
+      "targets": [ "desktop", "mobile" ]
+    },
+    "ext.isekai.contrib.dialog": {
+      "scripts": ["ext.isekai.contributor.dialog.js"],
+      "styles": ["ext.isekai.contributor.dialog.less"],
+      "targets": [ "desktop", "mobile" ],
+      "dependencies": [
+				"oojs-ui-core",
+        "oojs-ui-windows",
+        "oojs-ui-widgets"
+			],
+      "messages": [
+        "isekaicontrib-dialog-title",
+        "isekaicontrib-dialog-cancel",
+        "isekaicontrib-dialog-subtitle-creator",
+        "isekaicontrib-dialog-subtitle-last-editor",
+        "isekaicontrib-dialog-subtitle-contributors"
+      ]
+    },
+    "ext.isekai.contrib.images": {
+      "selector": ".isekai-img-{name}",
+      "class": "ResourceLoaderImageModule",
+      "images": {
+        "more-contrib": "more.svg"
+      }
+    }
+  },
+  "ResourceFileModulePaths": {
+    "localBasePath": "modules",
+    "remoteExtPath": "IsekaiContributors"
+  },
+  "config": {
+    "IsekaiContributorAvatar": {
+      "value": "/avatar/%s"
+    }
+  },
+  "manifest_version": 2
+}

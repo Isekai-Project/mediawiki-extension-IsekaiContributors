@@ -1,0 +1,5 @@
+{
+  "apihelp-query+pagecredit-description": "获得页面的贡献者列表。",
+  "apihelp-query+pagecredit-summary": "获得页面的贡献者列表。",
+  "apihelp-query+pagecredit-param-limit": "获取的贡献者数量限制"
+}
