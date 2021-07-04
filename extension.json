@@ -5,10 +5,10 @@
   "requires": {
     "MediaWiki": ">= 1.35.0"
   },
-  "url": "/",
+  "url": "https://github.com/Isekai-Project/mediawiki-extension-IsekaiContributors",
   "descriptionmsg": "isekaicontrib-desc",
   "license-name": "MIT",
-  "type": "other",
+  "type": "skin",
   "APIPropModules": {
     "pagecredit": "Isekai\\Contributors\\Api\\ApiPageCredit"
   },
