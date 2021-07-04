@@ -8,7 +8,7 @@
   "url": "https://github.com/Isekai-Project/mediawiki-extension-IsekaiContributors",
   "descriptionmsg": "isekaicontrib-desc",
   "license-name": "MIT",
-  "type": "skin",
+  "type": "other",
   "APIPropModules": {
     "pagecredit": "Isekai\\Contributors\\Api\\ApiPageCredit"
   },
