@@ -1,10 +1,10 @@
 <?php
 namespace Isekai\Contributors;
 
-use Html;
-use IContextSource;
+use MediaWiki\Html\Html;
+use MediaWiki\Context\IContextSource;
+use MediaWiki\Title\Title;
 use MediaWiki\MediaWikiServices;
-use Title;
 
 class ContributorsBox {
     private $context;
@@ -12,7 +12,7 @@ class ContributorsBox {
     private $helper;
     private $contributors;
 
-    public function __construct(IContextSource $context, Title $title){
+    public function __construct(IContextSource $context, Title $title) {
         $this->context = $context;
         $this->title = $title;
         $this->helper = new PageCreditHelper($context);
@@ -20,8 +20,10 @@ class ContributorsBox {
         $this->contributors = $this->helper->getContributors($this->title, 5);
     }
 
-    public function getSideboxPanelHtml(){
-        global $wgIsekaiContributorAvatar;
+    public function getSideboxPanelHtml() {
+        $config = MediaWikiServices::getInstance()->getMainConfig();
+        $avatarTpl = $config->get('IsekaiContributorAvatar');
+
         if(empty($this->contributors)) return '';
         $userList = array_merge([$this->contributors['last_editor']], [$this->contributors['creator']],
             $this->contributors['contributors']);
@@ -35,7 +37,7 @@ class ContributorsBox {
                         'href' => $user['user_page']->getLinkURL(),
                         'target' => '_blank',
                         'title' => $displayName,
-                        'style' => "background-image: url('" . sprintf($wgIsekaiContributorAvatar, urlencode($user['user_name'])) . "')",
+                        'style' => "background-image: url('" . sprintf($avatarTpl, urlencode($user['user_name'])) . "')",
                     ]);
                 $exportedUser[] = $user['user_name'];
             }
@@ -50,8 +52,10 @@ class ContributorsBox {
             implode('', $userHtml) . Html::closeElement('div') . Html::closeElement('div');
     }
 
-    public function getTopPanelHtml(){
-        global $wgIsekaiContributorAvatar;
+    public function getTopPanelHtml() {
+        $config = MediaWikiServices::getInstance()->getMainConfig();
+        $avatarTpl = $config->get('IsekaiContributorAvatar');
+
         if(empty($this->contributors)) return '';
         $userList = array_merge([$this->contributors['last_editor']], [$this->contributors['creator']],
             $this->contributors['contributors']);
@@ -68,7 +72,7 @@ class ContributorsBox {
                         'href' => $user['user_page']->getLinkURL(),
                         'target' => '_blank',
                         'title' => $displayName,
-                        'style' => "background-image: url('" . sprintf($wgIsekaiContributorAvatar, urlencode($user['user_name'])) . "')",
+                        'style' => "background-image: url('" . sprintf($avatarTpl, urlencode($user['user_name'])) . "')",
                     ]);
                 $exportedUser[] = $user['user_name'];
             }

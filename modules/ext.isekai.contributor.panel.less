@@ -14,7 +14,7 @@
 
 .isekai-contrib-top-panel {
     padding: .25rem 0.5rem;
-    margin-bottom: 0;
+    margin-bottom: 10px;
     background-color: rgba(0,0,0,0.03);
     display: flex;
     align-items: center;
@@ -51,6 +51,12 @@
 }
 
 @media screen and (min-width: 1100px) {
+    .skin-timeless .isekai-contrib-top-panel {
+        display: none;
+    }
+}
+
+@media print {
     .isekai-contrib-top-panel {
         display: none;
     }
@@ -64,4 +70,21 @@
 
 .skin-timeless .isekai-contrib-sidebox-panel {
     margin-top: -8px;
+}
+
+.skin-citizen {
+    .isekai-contrib-top-panel {
+        background-color: var(--color-surface-2);
+        border-color: transparent;
+
+        .isekai-contrib-panel-title {
+            color: var(--color-subtle);
+        }
+    }
+
+    &-dark {
+        .isekai-contrib-top-panel .isekai-contrib-open-dialog {
+            filter: invert(1) brightness(2);
+        }
+    }
 }

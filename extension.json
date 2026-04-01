@@ -14,10 +14,10 @@
   },
   "Hooks": {
     "SidebarBeforeOutput": "Isekai\\Contributors\\Hooks::onSidebarBeforeOutput",
-    "SkinTemplateOutputPageBeforeExec": "Isekai\\Contributors\\Hooks::onSkinTemplateOutputPageBeforeExec",
     "BeforePageDisplay": "Isekai\\Contributors\\Hooks::onBeforePageDisplay",
     "ResourceLoaderGetConfigVars": "Isekai\\Contributors\\Hooks::onResourceLoaderGetConfigVars",
-    "GetDoubleUnderscoreIDs": "Isekai\\Contributors\\Hooks::onGetDoubleUnderscoreIDs"
+    "GetDoubleUnderscoreIDs": "Isekai\\Contributors\\Hooks::onGetDoubleUnderscoreIDs",
+    "UserGetRights": "Isekai\\Contributors\\Hooks::onUserGetRights"
   },
   "ExtensionMessagesFiles": {
 		"IsekaiContributorsMagic": "IsekaiContributors.i18n.magic.php"
@@ -34,12 +34,12 @@
   "ResourceModules": {
     "ext.isekai.contrib.styles": {
       "styles": ["ext.isekai.contributor.panel.less"],
-      "targets": [ "desktop", "mobile" ]
+      "targets": ["desktop", "mobile"]
     },
     "ext.isekai.contrib.dialog": {
       "scripts": ["ext.isekai.contributor.dialog.js"],
       "styles": ["ext.isekai.contributor.dialog.less"],
-      "targets": [ "desktop", "mobile" ],
+      "targets": ["desktop", "mobile"],
       "dependencies": [
 				"oojs-ui-core",
         "oojs-ui-windows",
@@ -55,7 +55,7 @@
     },
     "ext.isekai.contrib.images": {
       "selector": ".isekai-img-{name}",
-      "class": "ResourceLoaderImageModule",
+      "class": "MediaWiki\\ResourceLoader\\ImageModule",
       "images": {
         "more-contrib": "more.svg"
       }
@@ -63,11 +63,14 @@
   },
   "ResourceFileModulePaths": {
     "localBasePath": "modules",
-    "remoteExtPath": "IsekaiContributors"
+    "remoteExtPath": "IsekaiContributors/modules"
   },
   "config": {
     "IsekaiContributorAvatar": {
       "value": "/avatar/%s"
+    },
+    "IsekaiCreatorPermissions": {
+      "value": []
     }
   },
   "manifest_version": 2

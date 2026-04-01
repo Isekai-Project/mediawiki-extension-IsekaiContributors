@@ -1,0 +1,13 @@
+{
+  "isekaicontrib-name": "Isekai Contributors",
+  "isekaicontrib-desc": "Display an infobox for all editors on the page",
+  "isekaicontrib-sidebar-contrib": "Editors",
+  "isekaicontrib-viewall": "Show all",
+  "isekai-contrib": "Editors",
+  "isekaicontrib-dialog-title": "Editors for this page",
+  "isekaicontrib-dialog-cancel": "Close",
+  "isekaicontrib-dialog-subtitle-creator": "Creator",
+  "isekaicontrib-dialog-subtitle-last-editor": "Last editor",
+  "isekaicontrib-dialog-subtitle-contributors": "Other editors"
+
+}

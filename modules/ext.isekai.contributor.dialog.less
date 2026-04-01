@@ -37,6 +37,7 @@
         color: #000;
         padding-left: 20px;
         min-height: 28px;
+        line-height: 28px;
         font-size: 17px;
         font-weight: 600;
         align-items: center;
@@ -105,5 +106,34 @@
         overflow: hidden;
         text-overflow: ellipsis;
         -webkit-box-orient: vertical;
+    }
+}
+
+.skin-citizen {
+    .isekai-contrib-list {
+        a {
+            color: var(--color-base);
+        }
+    }
+
+    .isekai-list-item:hover {
+        background-color: var(--color-surface-2);
+    }
+
+    .isekai-list-item-sub {
+        background-color: var(--color-surface-3);
+        color: var(--color-base);
+    }
+
+    .isekai-list-item-avatar {
+        color: var(--color-surface-0);
+    }
+    
+    .isekai-list-item-secondary {
+        color: var(--color-subtle);
+    }
+
+    .isekai-list-item-divider {
+        background-color: var(--border-color-base);
     }
 }

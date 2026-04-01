@@ -2,7 +2,6 @@
 
 namespace Isekai\Contributors\Api;
 
-use ApiBase;
 use ApiQueryBase;
 use ApiQuery;
 use Config;
@@ -12,6 +11,7 @@ use Wikimedia\ParamValidator\ParamValidator;
 use Exception;
 
 use Isekai\Contributors\PageCreditHelper;
+use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 
 class ApiPageCredit extends ApiQueryBase {
     private const CACHE_VERSION = 2;
@@ -43,8 +43,11 @@ class ApiPageCredit extends ApiQueryBase {
         $this->helper = new PageCreditHelper($this->getContext());
     }
 
+    /**
+     * @throws \ApiUsageException
+     */
     public function execute() {
-        $titles = $this->getPageSet()->getGoodTitles();
+        $titles = $this->getPageSet()->getGoodPages();
         if (empty($titles)) {
             return;
         }
@@ -59,6 +62,7 @@ class ApiPageCredit extends ApiQueryBase {
         foreach ($titles as $id => $title) {
             try {
                 $credit = $this->helper->getContributors($title, $limit);
+                
                 if ($isXml) {
                     $result->addValue(['query', 'pages', $id], 'pagecredit', ['*' => $credit]);
                 } else {
@@ -82,9 +86,9 @@ class ApiPageCredit extends ApiQueryBase {
         return [
             'limit' => [
                 ParamValidator::PARAM_DEFAULT => -1,
-                ApiBase::PARAM_TYPE => 'limit',
-                ApiBase::PARAM_MIN => -1,
-                ApiBase::PARAM_MAX => 100,
+                ParamValidator::PARAM_TYPE => 'limit',
+                IntegerDef::PARAM_MIN => -1,
+                IntegerDef::PARAM_MAX => 100,
             ]
         ];
     }
